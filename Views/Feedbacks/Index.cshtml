@@ -1,0 +1,32 @@
+@model IEnumerable<TFTechnologies.Models.TicketsType>
+<!-- Start Page Banner -->
+<div class="page-banner" style="padding:40px 0; background: url(~/images/slide-02-bg.jpg) center #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>@ViewBag.txtMessage</h2>
+                <p>Select a category</p>
+            </div>
+            <div class="col-md-6">
+                <ul class="breadcrumbs">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>@ViewBag.txtMessage</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Banner -->
+
+<p style="padding:20px; text-align:justify;">If you cant find a solution to your problems in our knowledgebase, you can submit a ticket by selecting the appropriate department below.</p>
+
+<div class="row" style="padding:20px;">
+    @foreach (var item in Model)
+    {
+        <div class="col-md-3">
+            <h2><a asp-area="" asp-action="CreateTasks" asp-route-id="@item.TypeId">@Html.DisplayFor(modelItem => item.TypeTitle)</a></h2>
+            <p>@Html.DisplayFor(modelItem => item.Description).</p>
+            @Html.HiddenFor(modelItem => item.TypeId)
+        </div>
+    }
+</div>

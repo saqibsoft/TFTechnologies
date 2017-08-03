@@ -1,0 +1,180 @@
+﻿<!-- Container -->
+<div id="container">
+    <!-- Start Map -->
+    <div id="map" data-position-latitude="30.21552" data-position-longitude="71.4673993" data-marker-img="~/images/marker.png"></div>
+
+
+    <script>
+        (function ($) {
+            $.fn.CustomMap = function (options) {
+
+                var posLatitude = $('#map').data('position-latitude'),
+                    posLongitude = $('#map').data('position-longitude');
+
+                var settings = $.extend({
+                    home: { latitude: posLatitude, longitude: posLongitude },
+                    text: '<div class="map-popup"><h4>Web Development | ZoOm-Arts</h4><p>A web development blog for all your HTML5 and WordPress needs.</p></div>',
+                    icon_url: $('#map').data('marker-img'),
+                    zoom: 15
+                }, options);
+
+                var coords = new google.maps.LatLng(settings.home.latitude, settings.home.longitude);
+
+                return this.each(function () {
+                    var element = $(this);
+
+                    var options = {
+                        zoom: settings.zoom,
+                        center: coords,
+                        mapTypeId: google.maps.MapTypeId.ROADMAP,
+                        mapTypeControl: false,
+                        scaleControl: false,
+                        streetViewControl: false,
+                        panControl: true,
+                        disableDefaultUI: true,
+                        zoomControlOptions: {
+                            style: google.maps.ZoomControlStyle.DEFAULT
+                        },
+                        overviewMapControl: true,
+                    };
+
+                    var map = new google.maps.Map(element[0], options);
+
+                    var icon = {
+                        url: settings.icon_url,
+                        origin: new google.maps.Point(0, 0)
+                    };
+
+                    var marker = new google.maps.Marker({
+                        position: coords,
+                        map: map,
+                        icon: icon,
+                        draggable: false
+                    });
+
+                    var info = new google.maps.InfoWindow({
+                        content: settings.text
+                    });
+
+                    google.maps.event.addListener(marker, 'click', function () {
+                        info.open(map, marker);
+                    });
+
+                    var styles = [{ "featureType": "landscape", "stylers": [{ "saturation": -100 }, { "lightness": 65 }, { "visibility": "on" }] }, { "featureType": "poi", "stylers": [{ "saturation": -100 }, { "lightness": 51 }, { "visibility": "simplified" }] }, { "featureType": "road.highway", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] }, { "featureType": "road.arterial", "stylers": [{ "saturation": -100 }, { "lightness": 30 }, { "visibility": "on" }] }, { "featureType": "road.local", "stylers": [{ "saturation": -100 }, { "lightness": 40 }, { "visibility": "on" }] }, { "featureType": "transit", "stylers": [{ "saturation": -100 }, { "visibility": "simplified" }] }, { "featureType": "administrative.province", "stylers": [{ "visibility": "on" }] }, { "featureType": "water", "elementType": "labels", "stylers": [{ "visibility": "on" }, { "lightness": -25 }, { "saturation": -100 }] }, { "featureType": "water", "elementType": "geometry", "stylers": [{ "hue": "#ffff00" }, { "lightness": -25 }, { "saturation": -97 }] }];
+
+                    map.setOptions({ styles: styles });
+                });
+
+            };
+        }(jQuery));
+
+        jQuery(document).ready(function () {
+            jQuery('#map').CustomMap();
+        });
+    </script>
+    <!-- End Map -->
+    <!-- Start Content -->
+    <div id="content">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7">
+                    <!-- Classic Heading -->
+                    <h4 class="classic-title"><span>Contact Us</span></h4>
+                    <!-- Some Text -->
+                    <p>
+                        <strong class="accent-color">G.M Marketing</strong>
+                        <br><strong>Muhammad Irfan Najmi</strong>
+                        <br>Email: Irfan@3ftechnologies.com
+                        <br>Contact No.:+92-301-7500198 , +92 312 7500198
+                        <br>
+                        <br>
+                    </p>
+
+                    <p>
+                        <strong class="accent-color">Development Head</strong>
+                        <br><strong>Muhammad Salman Khan</strong>
+                        <br>Email: salmanqadri@3ftechnologies.com
+                        <br>Contact No.:+92-333-6766592
+                        <br>
+                        <br>
+                    </p>
+
+                    <p>
+                        <strong class="accent-color">Customer Support Officer</strong>
+                        <br><strong>Salman Ahmad  </strong>
+                        <br>Email: salman@3ftechnologies.com
+                        <br>Contact No.:+92-345-8710354
+                        <br>
+
+                        <br><strong>Muhammad Nauman Zahid</strong>
+                        <br>Email: noman@3ftechnologies.com
+                        <br>Contact No.:+92 306 6030690<br>
+
+
+                        <br><strong>Muhammad Asad Khan</strong>
+                        <br>Email: asad@3ftechnologies.com
+                        <br>Contact No.:+92 303 0722100 , +92 313 6245208
+                    </p>
+                    <br>
+                    <br>
+
+                    <p>
+                        <strong class="accent-color">Sales Officers</strong>
+                        <br><strong>Muhammad Imran</strong>
+                        <br>Email: Imran@3ftechnologies.com
+                        <br>Contact No.:+92-333-96774454, +92-303-6168625
+                        <br>
+                        <br><strong>Kashif Shah</strong>
+                        <br>Email: Kashif@3ftechnologies.com
+                        <br>Contact No.:+92-300-6858368, +92-314-6726878
+                        <br>
+                        <br><strong>Amjad Laghari</strong>
+                        <br>Email: Amjad@3ftechnologies.com
+                        <br>Contact No.:+92-344-3731404, +92-333-2915504
+                    </p>
+
+                </div>
+
+                <div class="col-md-5">
+
+                    <!-- Classic Heading -->
+                    <h4 class="classic-title"><span>Information</span></h4>
+                    <!-- Some Info -->
+                    <p>
+                        3F Technologies (Pvt) Ltd. comprises a dynamic group of professionals who are experts in all standard industry programming languages / enterprise solution
+                    </p>
+
+                    <!-- Divider -->
+                    <div class="hr1" style="margin-bottom:10px;"></div>
+
+                    <!-- Info - Icons List -->
+                    <ul class="icons-list">
+                        <li><i class="icon-location-1"></i> <strong>Address:</strong> 228/10, Ittehad Street, Peer Khurshid Colony,Multan Pakistan.</li>
+                        <li><i class="icon-mail-1"></i> <strong>Email:</strong> support@3ftechnologies.com</li>
+                        <li>
+                            <i class="icon-mobile-1"></i> <strong>Phone:</strong> (061) 6510198 , (061) 6212038
+
+                        </li>
+                    </ul>
+
+                    <!-- Divider -->
+                    <div class="hr1" style="margin-bottom:15px;"></div>
+
+                    <!-- Classic Heading -->
+                    <h4 class="classic-title"><span>Working Hours</span></h4>
+
+                    <!-- Info - List -->
+                    <ul class="list-unstyled">
+                        <li><i class="icon icon-time"></i> <strong>Monday - Saturday</strong> - 9am to 5pm</li>
+
+                        <li><i class="icon icon-time"></i> <strong>Sunday</strong> - Closed</li>
+                    </ul>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- End content -->

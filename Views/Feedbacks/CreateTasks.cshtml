@@ -1,0 +1,115 @@
+﻿@model TFTechnologies.ViewModels.Tasks
+
+<!-- Start Page Banner -->
+<div class="page-banner" style="padding:40px 0; background: url(~/images/slide-02-bg.jpg) center #f9f9f9;">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <h2>Feedbacks</h2>
+                <p>Submit your tasks</p>
+            </div>
+            <div class="col-md-6">
+                <ul class="breadcrumbs">
+                    <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li>FeedBacks</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- End Page Banner -->
+<div>
+    <div class="col-sm-3 col-sm-offset-1 task-sidebar">
+        <p>This is for previous tasks List</p>
+    </div>
+    <form asp-action="Create">
+        <div class="form-horizontal form-tasks">
+            @*<hr />*@
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label asp-for="TicketId" class="col-md-2 control-label"></label>
+                    <div>
+                        <input asp-for="TicketId" class="form-control form-control-width" />
+                        <span asp-validation-for="TicketId" class="text-danger"></span>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label asp-for="TypeId" class="col-md-2 control-label"></label>
+                    <div>
+                        <select asp-for="TypeId" class="form-control form-control-width" asp-items="ViewBag.TypeId"></select>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="form-group col-xs-6">
+                    <label asp-for="UserId" class="col-md-2 control-label"></label>
+                    <div>
+                        <select asp-for="UserId" class="form-control" asp-items="ViewBag.UserId"></select>
+                    </div>
+                </div>
+                <div class="form-group col-xs-6">
+                    <label asp-for="Subject" class="col-md-2 control-label"></label>
+                    <div>
+                        <input asp-for="Subject" class="form-control" />
+                        <span asp-validation-for="Subject" class="text-danger"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Priority" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Priority" class="form-control" />
+                    <span asp-validation-for="Priority" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="MsgDetail" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="MsgDetail" class="form-control" />
+                    <span asp-validation-for="MsgDetail" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="EntryDate" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="EntryDate" class="form-control" />
+                    <span asp-validation-for="EntryDate" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <input asp-for="Status" class="form-control" />
+                    <span asp-validation-for="Status" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ReplyId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="ReplyId" class="form-control" asp-items="ViewBag.ReplyId"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <label asp-for="ProductId" class="col-md-2 control-label"></label>
+                <div class="col-md-10">
+                    <select asp-for="ProductId" class="form-control" asp-items="ViewBag.ProductId"></select>
+                </div>
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Save" class="btn btn-default" />
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@*<div>
+        <a asp-action="Index">Back to List</a>
+    </div>*@
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

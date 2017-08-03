@@ -1,0 +1,105 @@
+﻿@using Microsoft.AspNetCore.Http
+<!-- Start Header -->
+<div class="hidden-header"></div>
+<header class="clearfix">
+    <!-- Start Top Bar -->
+    <div class="top-bar">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <!-- Start Contact Info -->
+                    <ul class="contact-details">
+                        <li><a href="#"><i class="icon-mobile-2"></i> +92 61 6510198 </a></li>
+                        <li><a href="#"><i class="icon-mail-2"></i> support@3ftechnologies.com </a></li>
+                    </ul>
+                    <!-- End Contact Info -->
+                </div>
+                <div class="col-md-6">
+                    <!-- Start Social Links -->
+                    <ul class="social-list">
+                        <li>
+                            <a class="facebook sh-tooltip" data-placement="bottom" title="Facebook" href="https://www.facebook.com/3ftechologies" target="_blank"><i class="icon-facebook-2"></i></a>
+                        </li>
+                        <li>
+                            <a class="twitter sh-tooltip" data-placement="bottom" title="Twitter" href="#"><i class="icon-twitter-2"></i></a>
+                        </li>
+                        <li>
+                            <a class="google sh-tooltip" data-placement="bottom" title="Google Plus" href="#"><i class="icon-gplus"></i></a>
+                        </li>
+                        <li>
+                            <a class="dribbble sh-tooltip" data-placement="bottom" title="Dribble" href="#"><i class="icon-dribbble-2"></i></a>
+                        </li>
+                        <li>
+                            <a class="linkdin sh-tooltip" data-placement="bottom" title="Linkedin" href="#"><i class="icon-linkedin"></i></a>
+                        </li>
+                        <li>
+                            <a class="flickr sh-tooltip" data-placement="bottom" title="Flickr" href="#"><i class="icon-flickr-1"></i></a>
+                        </li>
+                        <li>
+                            <a class="tumblr sh-tooltip" data-placement="bottom" title="Tumblr" href="#"><i class="icon-tumblr"></i></a>
+                        </li>
+                        <li>
+                            <a class="instgram sh-tooltip" data-placement="bottom" title="Instagram" href="#"><i class="icon-instagramm"></i></a>
+                        </li>
+                        <li>
+                            <a class="vimeo sh-tooltip" data-placement="bottom" title="vimeo" href="#"><i class="icon-vimeo-1"></i></a>
+                        </li>
+                        <li>
+                            <a class="skype sh-tooltip" data-placement="bottom" title="Skype" href="#"><i class="icon-skype-2"></i></a>
+                        </li>
+                    </ul>
+                    <!-- End Social Links -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- End Top Bar -->
+    <!-- Start Header ( Logo & Naviagtion ) -->
+    <div class="navbar navbar-default navbar-top">
+        <div class="container">
+            <div class="navbar-header">
+                <!-- Stat Toggle Nav Link For Mobiles -->
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <i class="icon-menu-1"></i>
+                </button>
+                <!-- End Toggle Nav Link For Mobiles -->
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index"><img alt="" src="~/images/3f-logo.png"></a>
+            </div>
+            <div class="navbar-collapse collapse">
+                <!-- Stat Search -->
+                <div class="search-side">
+                    <a href="#" class="show-search"><i class="icon-search-1"></i></a>
+                    <div class="search-form">
+                        <form autocomplete="off" role="search" method="get" class="searchform" action="#">
+                            <input type="text" value="" name="s" id="s" placeholder="Search the site...">
+                        </form>
+                    </div>
+                </div>
+                <!-- End Search -->
+                <!-- Start Navigation List -->
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a asp-area="" asp-controller="Home" asp-action="Index">Home</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Products">Products</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="About">About Us</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Media">Media</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Career">Career</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Courses">Courses</a></li>
+                    <li><a asp-area="" asp-controller="Feedbacks" asp-action="Index">Feedback</a></li>
+                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
+                    @if (Context.Session.GetString("UserID") != null)
+                        {
+                            <li><a asp-area="" asp-controller="Home" asp-action="Logout">Logout</a></li>
+                        }
+                        else
+                        {
+                            @*<li><a asp-area="" asp-controller="Home" asp-action="Register">Register</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Login">Login</a></li>*@
+                        }
+                </ul>
+                <!-- End Navigation List -->
+            </div>
+        </div>
+    </div>
+    <!-- End Header ( Logo & Naviagtion ) -->
+</header>
+<!-- End Header -->
